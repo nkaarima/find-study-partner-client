@@ -1,13 +1,61 @@
-import React from 'react';
-import { NavLink } from 'react-router';
+import React, { use } from 'react';
+import { NavLink, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../context/AuthContext';
 
 const Register = () => {
+
+     const {createUser}= use(AuthContext);
+
+     const navigate= useNavigate();
+
+
+     const handleRegister = (event) => {
+
+        event.preventDefault();
+        const form = event.target;
+        const email= form.email.value;
+        const password= form.password.value;
+
+        console.log(email,password);
+
+        createUser(email,password)
+        .then(result => {
+     
+            const user= result.user;
+            console.log(user);
+
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Registration is succesful",
+                        showConfirmButton: false,
+                        timer: 1500
+                        });
+                        
+            navigate('/');
+
+             
+        })
+        .catch(error => {
+
+             Swal.fire({
+                    icon: "error",
+                    title: `${error.message}`
+                    });
+        })
+        
+
+     }
+
+
+
     return (         
                             
                 <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
                     <h1 className="text-3xl text-center font-bold p-2">Register!</h1>
 
-                <form className="card-body">
+                <form onSubmit={handleRegister} className="card-body">
                     <fieldset className="fieldset">
 
                      <label className="label">Name</label>
@@ -22,7 +70,7 @@ const Register = () => {
                     <label className="label">Password</label>
                     <input type="password" name="password" className="input" placeholder="Password" />
 
-                    <button className="btn btn-soft btn-primary mt-4">Register</button>
+                    <button type="submit" className="btn btn-soft btn-primary mt-4">Register</button>
                     </fieldset>
                 </form>
                   <p className="text-center">Already have an account?<NavLink to="/login" className="text-blue-500">Login</NavLink></p>

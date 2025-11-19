@@ -19,8 +19,8 @@ const Navbar = () => {
 
                 
                 <div>
-                     <Link to="/login" class="btn btn-soft btn-primary mr-2.5 text-[18px]">Login</Link>
-                    <Link to="/register" class="btn btn-soft btn-primary mr-2 text-[18px]">Register</Link>
+                     <Link to="/login" className="btn btn-soft btn-primary mr-2.5 text-[18px]">Login</Link>
+                    <Link to="/register" className="btn btn-soft btn-primary mr-2 text-[18px]">Register</Link>
                 </div>
                 
   
