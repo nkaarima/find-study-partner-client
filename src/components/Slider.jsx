@@ -26,7 +26,7 @@ const purposes=
 
 const Slider = () => {
     return (
-        <div className="">
+        <div>
 
             <Swiper modules={[Pagination,Autoplay]}
                      
