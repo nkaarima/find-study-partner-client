@@ -7,6 +7,7 @@ import RootLayout from './layouts/RootLayout.jsx'
 import Home from './components/Home.jsx'
 import FindPartner from './FindPartner.jsx'
 import Login from './components/Login.jsx'
+import Register from './components/Register.jsx'
 
 
 const router= createBrowserRouter([
@@ -30,6 +31,11 @@ const router= createBrowserRouter([
       {
         path:'/login',
         Component:Login
+      },
+
+      {
+        path:"/register",
+        Component: Register
       }
     ]
    }

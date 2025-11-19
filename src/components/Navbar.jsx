@@ -1,6 +1,6 @@
 import React from 'react';
 import studyImg from '../assets/study group.webp'
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
     return (
@@ -19,8 +19,8 @@ const Navbar = () => {
 
                 
                 <div>
-                     <button class="btn btn-soft btn-primary mr-2.5 text-[18px]">Login</button>
-                    <button class="btn btn-soft btn-primary mr-2 text-[18px]">Register</button>
+                     <Link to="/login" class="btn btn-soft btn-primary mr-2.5 text-[18px]">Login</Link>
+                    <Link to="/register" class="btn btn-soft btn-primary mr-2 text-[18px]">Register</Link>
                 </div>
                 
   
