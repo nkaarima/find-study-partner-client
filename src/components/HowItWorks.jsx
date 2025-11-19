@@ -1,5 +1,5 @@
 import React from 'react';
-import virtualImg from '../assets/virtual study.jpg'
+import virtualImg from '../assets/study group2.webp'
 
 
 const HowItWorks = () => {
@@ -9,9 +9,13 @@ const HowItWorks = () => {
 
                 <div className="flex flex-col space-y-2.5 justify-between items-center mt-5 text-[20px] md:flex-row">
 
-                    <img src={virtualImg} className="" alt="" />
+                    <img src={virtualImg} className="h-[400px]" alt="" />
                      
-                    <p>Connect to motivated students across a wide range of subjects</p>
+                    <ul className="space-y-2">
+                        <li>Select your course, time and study mode</li>
+                        <li>Send a request to future collaborators</li>
+
+                    </ul>
                  
                  
 
