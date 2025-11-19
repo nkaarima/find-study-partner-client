@@ -1,13 +1,15 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../context/AuthContext';
 
 const Register = () => {
 
-     const {createUser, updateUser, setUser,logOut}= use(AuthContext);
+     const {createUser, updateUser, setUser}= use(AuthContext);
 
      const navigate= useNavigate();
+
+     const [error,setError] = useState('');
 
 
      const handleRegister = (event) => {
@@ -18,6 +20,37 @@ const Register = () => {
         const password= form.password.value;
         const name= form.name.value;
         const photo= form.photo.value;
+
+
+
+        const upperCaseRegex= /(?=.*[A-Z])/;
+
+        const lowerCaseRegex= /(?=.*[a-z])/;
+
+        const sixCharLong= /.{6,}/;
+
+        if(!upperCaseRegex.test(password))
+    
+             {
+                setError('Please include at least one uppercase letter');
+                return;
+             }
+
+        else if(!lowerCaseRegex.test(password))
+        {
+            setError('Please include at least one lowercase letter');
+            return;
+        }
+
+        else if(!sixCharLong.test(password)){
+
+             setError('Please make the password at least 6 characters long');
+             return;
+        }
+
+        setError('');
+             
+        
 
         console.log(email,password);
 
@@ -59,14 +92,7 @@ const Register = () => {
 
      }
 
-     const handleLogout = () => {
-
-         logOut()
-         .then(() => {
-            navigate('/');
-         })
-
-     }
+    
 
 
 
@@ -93,6 +119,9 @@ const Register = () => {
                     <button type="submit" className="btn btn-soft btn-primary mt-4">Register</button>
                     </fieldset>
                 </form>
+                  {
+                    error && <p>{error}</p>
+                  }
                   <p className="text-center">Already have an account?<NavLink to="/login" className="text-blue-500">Login</NavLink></p>
                   
                   <button className="btn g-white text-black border-[#e5e5e5]">
