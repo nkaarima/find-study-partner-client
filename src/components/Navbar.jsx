@@ -34,7 +34,7 @@ const Navbar = () => {
 
                  {user && <>
                  
-                   <li><NavLink to="/profile">Create Partner Profile</NavLink></li>
+                   <li><NavLink to="/userProfile">Create Partner Profile</NavLink></li>
                    <li><NavLink to="/connections">My Connections</NavLink></li>
                  
                  </>}
@@ -49,7 +49,7 @@ const Navbar = () => {
 
                              <summary><img src={user.photoURL} className=" p-2.5 w-[100px] h-[100px] rounded-[50px]"></img></summary>
                             <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                               <li><NavLink to="/my-profile">My Profile</NavLink></li>
+                               <li><NavLink to="/myProfile">My Profile</NavLink></li>
                                <li><button onClick={handleLogout}>Logout</button></li>
                                 
                             </ul>
