@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 
 const Register = () => {
 
-     const {createUser}= use(AuthContext);
+     const {createUser, updateUser, setUser,logOut}= use(AuthContext);
 
      const navigate= useNavigate();
 
@@ -16,6 +16,8 @@ const Register = () => {
         const form = event.target;
         const email= form.email.value;
         const password= form.password.value;
+        const name= form.name.value;
+        const photo= form.photo.value;
 
         console.log(email,password);
 
@@ -23,7 +25,13 @@ const Register = () => {
         .then(result => {
      
             const user= result.user;
-            console.log(user);
+             console.log(user);
+
+             updateUser({displayName: name, photoURL:photo})
+             .then(() => {
+
+                setUser({...user, displayName: name, photoURL:photo})
+             })
 
                     Swal.fire({
                         position: "top-end",
@@ -32,8 +40,11 @@ const Register = () => {
                         showConfirmButton: false,
                         timer: 1500
                         });
-                        
+
+
             navigate('/');
+
+
 
              
         })
@@ -45,6 +56,15 @@ const Register = () => {
                     });
         })
         
+
+     }
+
+     const handleLogout = () => {
+
+         logOut()
+         .then(() => {
+            navigate('/');
+         })
 
      }
 
