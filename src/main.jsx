@@ -30,7 +30,10 @@ const router= createBrowserRouter([
 
       {
         path:"/findPartner",
-        Component: FindPartner
+        element:
+        <PrivateRoute>
+           <FindPartner></FindPartner>
+        </PrivateRoute>
       },
 
       {
@@ -44,7 +47,11 @@ const router= createBrowserRouter([
       },
       {
         path:'/myProfile',
-        Component:MyProfile
+        element:
+        
+        <PrivateRoute>
+          <MyProfile></MyProfile>
+        </PrivateRoute>
       },
       {
         path:"/createProfile",
