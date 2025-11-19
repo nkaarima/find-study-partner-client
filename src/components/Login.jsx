@@ -1,12 +1,53 @@
-import React from 'react';
-import { NavLink } from 'react-router';
+import React, { use } from 'react';
+import { NavLink, useNavigate } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+
+    const {logIn} = use(AuthContext);
+    const navigate= useNavigate();
+
+    const handleLogIn = (event) => {
+
+         event.preventDefault();
+         const form = event.target;
+         const email= form.email.value;
+         const password= form.password.value;
+
+         logIn(email,password)
+         .then(() => {
+
+            Swal.fire({
+
+                position: "top-end",
+                icon: "success",
+                title: "Login is succesful",
+                showConfirmButton: false,
+                timer: 1500
+                });
+
+            navigate('/');
+             
+             
+         })
+
+         .catch(error => {
+
+            Swal.fire({
+                icon: "error",
+                title: `${error.message}`
+                });
+
+         })
+
+    }
+
     return (
         <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
                     <h1 className="text-3xl text-center font-bold p-2">Login!</h1>
 
-                <form className="card-body">
+                <form onSubmit={handleLogIn} className="card-body">
                     <fieldset className="fieldset">
 
                     <label className="label">Email</label>
