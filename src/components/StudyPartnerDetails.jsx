@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { useParams } from 'react-router';
 import useAxios from '../hooks/useAxios';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../context/AuthContext';
 
 const StudyPartnerDetails = () => {
 
     const [studyPartner,setStudyPartner] = useState({});
+    const {user}= use(AuthContext);
 
      const {id}= useParams();
      //console.log(id);
@@ -32,13 +34,23 @@ const StudyPartnerDetails = () => {
 
          console.log('Updated',res.data);
          toast.success('Request has been send');
+        
     })
 
-    .catch(error => {
+    const requestData= {
 
-         toast.error(`${error.message}`)
+         studyPartnerId:id,
+         senderEmail:user.email
+
+    }
+
+    axiosInstance.post('/studyPartnerRequest', requestData)
+    .then(data => {
+         console.log(data);
+    
     })
-         
+
+      
     }
 
 
