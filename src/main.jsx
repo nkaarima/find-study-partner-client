@@ -14,6 +14,7 @@ import CreateProfile from './components/CreateProfile.jsx'
 import PrivateRoute from './routes/PrivateRoute.jsx'
 import { ToastContainer } from 'react-toastify'
 import StudyPartnerDetails from './components/StudyPartnerDetails.jsx'
+import MyConnection from './components/MyConnection.jsx'
 
 
 const router= createBrowserRouter([
@@ -62,6 +63,15 @@ const router= createBrowserRouter([
           <CreateProfile></CreateProfile>
 
        </PrivateRoute>
+      },
+
+      {
+        path:'/connections',
+        element:
+        <PrivateRoute>
+           <MyConnection></MyConnection>
+        </PrivateRoute>
+
       },
 
       {
