@@ -59,11 +59,11 @@ const StudyPartnerDetails = () => {
     return (
         
                 <div className="hero bg-base-200 min-h-screen">
-                            <div className="hero-content flex-col lg:flex-row gap-5">
+                            <div className="hero-content flex-col lg:flex-row">
                                 <img src= {studyPartner.profileimage} className="max-w-sm rounded-lg shadow-2xl"/>
                                     <div>
 
-                                    <h1 className="text-5xl font-bold mb-2.5">{studyPartner.name}</h1>
+                                    <h1 className="text-5xl font-bold">{studyPartner.name}</h1>
                                             <div className="space-y-4">
                                                 <p>Rating: {studyPartner.rating}</p>
                                                 <p>Subject: {studyPartner.subject}</p>

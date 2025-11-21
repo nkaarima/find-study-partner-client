@@ -52,13 +52,13 @@ const Register = () => {
              
         
 
-        console.log(email,password);
+        //console.log(email,password);
 
         createUser(email,password)
         .then(result => {
      
             const user= result.user;
-             console.log(user);
+             //console.log(user);
 
              updateUser({displayName: name, photoURL:photo})
              .then(() => {

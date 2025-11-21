@@ -34,7 +34,7 @@ const CreateProfile = () => {
          axiosInstance.post('/studyPartner', user)
          .then(data => {
 
-             console.log(data.data);
+             //console.log(data.data);
 
              if(data.data.insertedId)
              {
