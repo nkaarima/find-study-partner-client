@@ -5,7 +5,7 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import RootLayout from './layouts/RootLayout.jsx'
 import Home from './components/Home.jsx'
-import FindPartner from './FindPartner.jsx'
+import FindPartner from './components/FindPartner.jsx'
 import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
 import AuthProvider from './provider/AuthProvider.jsx'
@@ -13,6 +13,7 @@ import MyProfile from './components/MyProfile.jsx'
 import CreateProfile from './components/CreateProfile.jsx'
 import PrivateRoute from './routes/PrivateRoute.jsx'
 import { ToastContainer } from 'react-toastify'
+import StudyPartnerDetails from './components/StudyPartnerDetails.jsx'
 
 
 const router= createBrowserRouter([
@@ -61,6 +62,18 @@ const router= createBrowserRouter([
           <CreateProfile></CreateProfile>
 
        </PrivateRoute>
+      },
+
+      {
+        path:"/details/:id",
+
+        element:
+        <PrivateRoute>
+         
+          <StudyPartnerDetails></StudyPartnerDetails>
+          
+
+        </PrivateRoute>
       }
     ]
    }

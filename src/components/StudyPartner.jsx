@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const StudyPartner = ({user}) => {
 
-    const {name,profileimage,subject,studyMode,experienceLevel} = user;
+    const {_id,name,profileimage,subject,studyMode,experienceLevel} = user;
     return (
         <div>
              <img src={profileimage} className="w-[400px] h-[360px]" alt="" />
@@ -11,7 +12,7 @@ const StudyPartner = ({user}) => {
                 <p>Subject: {subject}</p>
                 <p>Study Mode: {studyMode}</p>
                 <p>Experience Level: {experienceLevel}</p>
-                 <button className="btn btn-soft btn-primary text-[18px]">View Profile Button</button>
+                 <Link to={`/details/${_id}`} className="btn btn-soft btn-primary text-[18px]">View Profile Button</Link>
              </div>
             
         </div>

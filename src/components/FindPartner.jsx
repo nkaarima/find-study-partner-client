@@ -1,7 +1,7 @@
 import React, { use, useState } from 'react';
-import useAxios from './hooks/useAxios';
-import { AuthContext } from './context/AuthContext';
-import StudyPartner from './components/StudyPartner';
+import useAxios from '../hooks/useAxios';
+import { AuthContext } from '../context/AuthContext';
+import StudyPartner from './StudyPartner';
 
 const FindPartner = () => {
 
