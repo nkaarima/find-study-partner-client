@@ -22,8 +22,8 @@ const CreateProfile = () => {
          const availabilityTime= form.availabilityTime.value;
          const location= form.location.value;
          const experienceLevel= form.experienceLevel.value;
-         const rating= form.rating.value;
-         const partnerCount= form.partnerCount.value;
+         const rating= parseInt(form.rating.value);
+         const partnerCount= parseInt(form.partnerCount.value);
 
          const user={
             name,profileimage,subject,
