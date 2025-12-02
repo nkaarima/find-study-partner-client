@@ -68,7 +68,7 @@ const StudyPartnerDetails = () => {
                                                 <p>Rating: {studyPartner.rating}</p>
                                                 <p>Subject: {studyPartner.subject}</p>
                                                 <p>StudyMode: {studyPartner.studyMode}</p>
-                                                <p>Available Time: {studyPartner.availaibilityTime}</p>
+                                                <p>Available Time: {studyPartner.availabilityTime}</p>
                                                 <p>Location: {studyPartner.location}</p>
                                                 <p>Experice: {studyPartner.experienceLevel}</p>
                                                 <p>Cuurent Study Partner Count: {studyPartner.patnerCount}</p>
